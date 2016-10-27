@@ -16,7 +16,7 @@
 <body>
 
   <?php if (isset($_REQUEST['merchantAccount']) && isset($_REQUEST['merchantReference'])): ?>
-    <?php if (true): // check if it is approved ?>
+    <?php if (isset($_SESSION['transaction_result']) && $_SESSION['transaction_result'] == 'APPROVED'): ?>
       <h1>Thank you for your payment</h1>
     <?php else: ?>
       <h1>There was a problem with your request</h1>
@@ -26,7 +26,7 @@
   <?php else: ?>
 
     <h1>Click on the button to make a purchase</h1>
-    <button>Buy me!</button>
+    <a href="#">Buy me!</a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
@@ -46,14 +46,8 @@
           return baseUrl + parameters;
         }
 
-        function launch() {
-          alert(buildUrl(baseUrl, requestObject));
-        }
         $(function() {
-          $('button').on('click', function(e) {
-            launch();
-            e.preventDefault();
-          })
+          $('a').prop('href', buildUrl(baseUrl, requestObject));
         });
       })(jQuery);
     </script>
