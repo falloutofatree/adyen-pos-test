@@ -39,7 +39,7 @@
         requestObject.amount = "2000"; // = 20,00 EUR
         requestObject.currency = "EUR";
         requestObject.merchantReference = "MyPosOrder-123456789";
-        requestObject.callback = 'http://localhost/return.php?' + '<?php echo urlencode("sessid=" . $sessid . "&merchantAccount=" . $merchantAccount . "&merchantReference=" . $merchantReference); ?>';
+        requestObject.callback = 'http://sellry.com/adyen-pos/return.php?' + '<?php echo urlencode("sessid=" . $sessid . "&merchantAccount=" . $merchantAccount . "&merchantReference=" . $merchantReference); ?>';
 
         function buildUrl(baseUrl, obj) {
           var parameters = $.param(obj)
