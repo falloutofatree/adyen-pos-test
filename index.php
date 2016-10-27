@@ -3,8 +3,8 @@
 
   $merchantAccount   = "FlightClubUSPOS";
   $merchantReference = "TEST-PAYMENT-" . date("Y-m-d-H:i:s");
-  $sessid = session_id();
 
+  $_SESSION['_sid'] = session_id();
   $_SESSION["merchantAccount"]   = $merchantAccount;
   $_SESSION["merchantReference"] = $merchantReference;
 ?>

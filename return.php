@@ -1,11 +1,11 @@
 <?php
   // shamelessly copy and past (and adapted) from: https://github.com/Adyen/adyen-pos-quick-integration-sample-code/blob/master/Web%20to%20App/1.%20PHP%20-%20pos-payment/pos-landing.php
-  session_id($_GET['sessid']);
+  #session_id($_GET['sessid']);
   session_start();
 
-  if ($_SESSION['merchantAccount'] != $_GET['merchantAccount'] || $_SESSION['merchantReference'] != $_GET['merchantReference'])
+  if ($_SESSION['merchantAccount'] != $_GET['merchantAccount'] || $_SESSION['merchantReference'] != $_GET['merchantReference']){
     die("this request was manipulated");
-
+  }
   if (isset($_GET['checksum'])){
     $cs = $_GET['checksum'];
   }elseif(isset($_GET['cs'])){
