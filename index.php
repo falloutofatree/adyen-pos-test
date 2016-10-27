@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $merchantAccount   = "MerchantAccount";
+  $merchantAccount   = "FlightClubUSPOS";
   $merchantReference = "TEST-PAYMENT-" . date("Y-m-d-H:i:s");
   $sessid = session_id();
 
