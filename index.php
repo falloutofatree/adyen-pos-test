@@ -38,7 +38,7 @@
         requestObject.sessionId = "1373375213ABCD";
         requestObject.amount = "2000"; // = 20,00 EUR
         requestObject.currency = "EUR";
-        requestObject.merchantReference = "MyPosOrder-123456789";
+        requestObject.merchantReference = <?php echo $merchantReference ?>;
         requestObject.callback = 'http://sellry.com/adyen-pos/return.php?' + '<?php echo urlencode("sessid=" . $sessid . "&merchantAccount=" . $merchantAccount . "&merchantReference=" . $merchantReference); ?>';
 
         function buildUrl(baseUrl, obj) {
