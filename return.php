@@ -34,7 +34,7 @@
       die('checksum failing');
     }
     $status = "APPROVED";
-    $_SESSION['transaction_result'] = $status
+    $_SESSION['transaction_result'] = $status;
   }
 
 
