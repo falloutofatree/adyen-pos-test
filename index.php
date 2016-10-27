@@ -47,7 +47,8 @@
         }
 
         $(function() {
-          $('a').prop('href', buildUrl(baseUrl, requestObject));
+          //$('a').prop('href', buildUrl(baseUrl, requestObject));
+            window.location.assign(buildUrl(baseUrl, requestObject));
         });
       })(jQuery);
     </script>
