@@ -30,7 +30,7 @@
     $currency = $_GET['amountCurrency'];
     $sessionid = $_GET['sessionId'];
 
-    if (validatechecksum($amount,$currency,$authResult,$sessionid,$cs,DEBUG) ==  false){
+    if (validatechecksum($amount,$currency,$authResult,$sessionid,$cs) ==  false){
       die('checksum failing');
     }
     $status = "APPROVED";
@@ -38,7 +38,7 @@
   }
 
 
-  function validatechecksum($amount,$currency,$result,$sessionid,$cs,$debugcs=false){
+  function validatechecksum($amount,$currency,$result,$sessionid,$cs){
     $amountdigits = str_split($amount);
     $currencychars = str_split($currency);
     $resultchars = str_split($result);
@@ -85,10 +85,8 @@
   }
 
  ?>
-<script language="javaScript">
-  function closeWindow() {
-    window.open('', '_self', '');
-    window.close();
-  }
-  setTimeout(closeWindow, 500);
-</script>
+<?php if (isset($_SESSION['transaction_result']) && $_SESSION['transaction_result'] == 'APPROVED'): ?>
+  <h1>Thank you for your payment</h1>
+<?php else: ?>
+  <h1>There was a problem with your request</h1>
+<?php endif ?>
